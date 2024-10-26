@@ -1,0 +1,311 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DINGS - Barras de Cereais</title>
+    <link href="https://fonts.googleapis.com/css2?family=DynaPuff&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&family=Pacifico&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        /* Definição de fontes e cores */
+        body {
+            font-family: 'DynaPuff', cursive;
+            background-color: #F5F5F5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* Previne a rolagem horizontal */
+        }
+
+        header {
+            background-color: #ADD8E6; /* Azul pastel */
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .container-logo {
+            position: relative;
+            display: inline-block; /* Para centralizar a imagem */
+            overflow: hidden; /* Esconde a parte que excede o tamanho do contêiner */
+            border-radius: 10px; /* Adiciona bordas arredondadas */
+        }
+
+        .logo {
+            width: 160px; /* Tamanho da logo */
+            height: auto; /* Mantém a proporção original */
+            display: block;
+        }
+
+        .container-logo::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: inherit;
+            filter: blur(10px); /* Aumente ou diminua o valor para ajustar o desfoque */
+            border-radius: 10px; /* Deve ser o mesmo que a imagem */
+            z-index: -1; /* Para ficar atrás da imagem */
+        }
+
+        .title {
+            font-family: 'Pacifico', cursive;
+            font-size: 3em;
+            margin: 0;
+        }
+
+        nav {
+            background-color: #9370DB; /* Roxo pastel */
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #FFD700; /* Amarelo */
+        }
+
+        .section {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .bar {
+            background-color: #FFFACD; /* Amarelo pastel */
+            margin: 15px auto;
+            padding: 15px;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 600px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, color 0.3s ease; /* Adiciona transição para cor do texto */
+        }
+
+        .bar:hover {
+            transform: scale(1.05);
+            background-color: #FFD700; /* Amarelo */
+        }
+
+        .bar h3 {
+            color: #333; /* Cor padrão do texto */
+            transition: color 0.3s ease; /* Transição suave para a cor */
+        }
+
+        .bar:hover h3 {
+            color: #fff; /* Cor do texto em branco ao passar o mouse */
+        }
+
+        footer {
+            background-color: #ADD8E6;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .social-icons a {
+            margin: 0 10px;
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #FFD700; /* Amarelo */
+        }
+
+        /* Galeria de fotos */
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .gallery img {
+            width: 150px;
+            height: 150px;
+            margin: 10px;
+            border-radius: 10px;
+            filter: blur(3px); /* Esfumaçar as bordas */
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+            filter: blur(0); /* Remove o desfoque ao passar o mouse */
+        }
+
+        .caption {
+            text-align: center;
+            font-style: italic;
+            margin-top: 10px;
+        }
+
+        /* Formulário de Assinatura */
+        .subscribe {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: linear-gradient(to right, #FF69B4, #8A2BE2); /* Degradê de rosa para roxo */
+            padding: 20px;
+            border-radius: 8px; /* Arredondar as bordas */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .subscribe h3 {
+            margin: 0 0 10px 0;
+            color: #fff; /* Cor do título em branco */
+        }
+
+        .subscribe input {
+            margin-bottom: 10px;
+            padding: 5px;
+            width: 150px;
+        }
+
+        /* Efeitos Parallax */
+        .parallax {
+            background-image: url('background.jpg'); /* Imagem de fundo */
+            height: 300px;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        /* Responsividade */
+        @media (max-width: 600px) {
+            nav ul li {
+                display: block;
+                margin: 10px 0;
+            }
+
+            .gallery img {
+                width: 100px;
+                height: 100px;
+            }
+
+            .subscribe {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container-logo">
+            <img src="Logo.jpg" alt="Logo do site" class="logo">
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#quem-somos">Quem Somos</a></li>
+            <li><a href="#nossas-barras">Nossas Barras</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </nav>
+
+    <div class="subscribe">
+        <h3>Inscreva-se</h3>
+        <form action="mailto:DINGS2024COMPANY@GMAIL.COM" method="post" enctype="text/plain">
+            <input type="text" placeholder="Seu nome" required>
+            <input type="email" placeholder="Seu email" required>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+
+    <main>
+        <section id="quem-somos" class="section">
+            <h2>Quem Somos</h2>
+            <p>Somos um grupo de alunos da ETEC Tortolero Araújo, em Paraguaçu Paulista, comprometidos em desenvolver
+                produtos que promovam uma alimentação mais saudável e inclusiva.</p>
+            <p>Nosso projeto se concentra na criação de barras de cereais inovadoras, pensadas para quem busca qualidade
+                e benefícios nutricionais. Criamos duas opções de barras de cereais isentas de glúten e com redução de
+                açúcar, atendendo às necessidades de quem possui restrições alimentares e de quem procura um lanche
+                mais equilibrado.</p>
+        </section>
+
+        <section id="nossas-barras" class="section">
+            <h2>Nossas Barras</h2>
+            <div class="bar">
+                <h3>Morango</h3>
+                <p>Esta barra combina o sabor refrescante do morango com ingredientes cuidadosamente selecionados para uma
+                    experiência leve e nutritiva. Sem glúten e com redução de açúcar, é ideal para quem busca uma opção
+                    prática e equilibrada, mantendo o sabor doce e natural da fruta.</p>
+            </div>
+            <div class="bar">
+                <h3>Maçã com Canela</h3>
+                <p>Nossa barra de maçã com canela oferece uma combinação reconfortante de sabores, perfeita para um lanche
+                    saudável a qualquer hora do dia. A maçã confere um sabor suave, enquanto a canela traz um toque
+                    aromático, sem a adição excessiva de açúcares.</p>
+            </div>
+        </section>
+
+        <section id="galeria" class="section">
+            <h2>Galeria de Fotos</h2>
+            <div class="gallery">
+                <img src="A.jpg" alt="Imagem A">
+                <img src="B.jpg" alt="Imagem B">
+                <img src="C.jpg" alt="Imagem C">
+                <img src="D.jpg" alt="Imagem D">
+                <img src="F.jpg" alt="Imagem F">
+                <img src="G.jpg" alt="Imagem G">
+                <img src="H.jpg" alt="Imagem H">
+                <img src="I.jpg" alt="Imagem I">
+                <img src="J.jpg" alt="Imagem J">
+                <img src="K.jpg" alt="Imagem K">
+                <img src="N.jpg" alt="Imagem L">
+                <img src="M.jpg" alt="Imagem M">
+                <img src="O.jpg" alt="Imagem O">
+                <img src="P.jpg" alt="Imagem P">
+            </div>
+            <div class="caption">FONTE: Próprio autor, 2024</div>
+        </section>
+
+        <section id="contato" class="section">
+            <h2>Contato</h2>
+            <p>Email: <a href="mailto:DINGS2024COMPANY@GMAIL.COM">DINGS2024COMPANY@GMAIL.COM</a></p>
+            <p>Telefone: <a href="tel:+5518997693538">(18) 99769-3538</a></p>
+            <div class="social-icons">
+                <p>Siga-nos nas redes sociais:</p>
+                <a href="https://www.tiktok.com/@DING_OFC" target="_blank">TikTok: DING_OFC</a>
+                <a href="https://www.instagram.com/DINGS_OFC" target="_blank">Instagram: DINGS_OFC</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 DINGS. Todos os direitos reservados.</p>
+    </footer>
+</body>
+
+</html>

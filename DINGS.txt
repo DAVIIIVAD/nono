@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dings - Mostruário de Barras de Cereais</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        .bar {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            width: 300px;
+            text-align: center;
+            padding: 20px;
+        }
+        .bar img {
+            width: 100%;
+            border-radius: 5px;
+        }
+        h2 {
+            color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Dings</h1>
+    <p>Mostruário de Barras de Cereais</p>
+</header>
+
+<div class="container">
+    <div class="bar">
+        <img src="https://via.placeholder.com/300x150.png?text=Barra+Maçã+com+Canela" alt="Barra de Maçã com Canela">
+        <h2>Barra de Maçã com Canela</h2>
+        <p>Isenta de glúten e sem açúcar adicionado.</p>
+        <p>Deliciosa combinação de maçã e canela, perfeita para o seu lanche!</p>
+    </div>
+
+    <div class="bar">
+        <img src="https://via.placeholder.com/300x150.png?text=Barra+de+Morango" alt="Barra de Morango">
+        <h2>Barra de Morango</h2>
+        <p>Isenta de glúten e sem açúcar adicionado.</p>
+        <p>Um sabor refrescante e irresistível para qualquer hora do dia!</p>
+    </div>
+</div>
+
+</body>
+</html>
